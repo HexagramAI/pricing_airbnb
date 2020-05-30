@@ -15,7 +15,7 @@ references/**
 results/**
 
 # except their sub-folders
-!data/**/
+# !data/**/
 !logs/**/
 !references/**/
 !results/**/
