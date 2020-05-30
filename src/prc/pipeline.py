@@ -26,12 +26,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Construction of the master pipeline.
-"""
+"""Construction of the master pipeline."""
 
 from typing import Dict
 
 from kedro.pipeline import Pipeline
+from prc.pipelines.pipeline import de_pipeline, fea_pipeline
+
 
 def create_pipelines(**kwargs) -> Dict[str, Pipeline]:
     """Create the project's pipeline.
@@ -43,5 +44,5 @@ def create_pipelines(**kwargs) -> Dict[str, Pipeline]:
         A mapping from a pipeline name to a ``Pipeline`` object.
 
     """
-
-    return {"__default__": Pipeline([])}
+    full_pipeline = de_pipeline + fea_pipeline
+    return {"__default__": full_pipeline}

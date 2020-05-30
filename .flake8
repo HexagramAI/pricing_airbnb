@@ -1,0 +1,11 @@
+[flake8]
+max-line-length = 88
+ignore = E203,W605,W503,D401 
+exclude =
+    src/corona/datasets/pandas/excel_dataset.py
+    src/corona/run.py
+    src/tests/*
+    kedro_cli.py  # TOOD(deepyaman.datta@quantumblack.com): Align Flake8 rules with Kedro template.
+per-file-ignores =
+    features/steps/*:D100,D103,D205,D400,F811
+    features/environment.py:D100,D103,F811
