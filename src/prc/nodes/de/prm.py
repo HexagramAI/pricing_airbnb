@@ -2,6 +2,18 @@
 import pandas as pd
 
 
+def merge_detailed_info(df_calendar, df_detail_listing):
+    """Merge details listing info."""
+    listing_drop_cols = ["host_id", "host_name", "price", "minimum_nights"]
+    df_res = df_calendar.merge(
+        df_detail_listing.drop(columns=listing_drop_cols),
+        how="inner",
+        left_on=["listing_id"],
+        right_on=["id"],
+    ).drop(columns=["id"])
+    return df_res
+
+
 def process_date_cols(df):
     """Process date related columns.
 
@@ -21,7 +33,7 @@ def process_date_cols(df):
 
     df["date"] = pd.to_datetime(df["date"])
     # add lag
-    df["lag"] = (df["date"] - min_date).dt.days
+    df["lag"] = (df["date"] - min_date).dt.days + 1
 
     # add month
     df["month"] = df.date.dt.month
@@ -31,4 +43,10 @@ def process_date_cols(df):
 def process_price_cols(df):
     """Process price columns."""
     df["price"] = df["price"].map(lambda x: float(str(x).strip("$").replace(",", "")))
+    return df
+
+
+def drop_outlier(df):
+    """Drop outlier."""
+    df = df[~(df.price == 0)]
     return df

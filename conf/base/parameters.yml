@@ -2,4 +2,14 @@ log_cols:
   - price
   - minimum_nights
   - lag
-  - month
+  - availability_365
+  # - month
+
+fea_drop_columns:
+  - adjusted_price
+  - maximum_nights
+  - name
+  - latitude
+  - longitude
+  - last_review
+  - neighbourhood
