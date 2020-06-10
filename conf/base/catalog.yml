@@ -3,11 +3,17 @@
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/04_user_guide/04_data_catalog.html
 
+# http://insideairbnb.com/get-the-data.html
+
+# Download file from  http://data.insideairbnb.com/united-states/ma/cambridge/2019-05-23/data/calendar.csv.gz
+# and unzip it to below folder
 raw_calendar:
   type: pandas.CSVDataSet
   filepath: data/01_raw/raw/calendar.csv
   layer: de
 
+# Download file from http://data.insideairbnb.com/united-states/ma/cambridge/2019-05-23/visualisations/listings.csv
+# and unzip it to below folder
 raw_detail_listing:
   type: pandas.CSVDataSet
   filepath: data/01_raw/raw/listings.csv
