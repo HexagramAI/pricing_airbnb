@@ -13,3 +13,10 @@ fea_drop_columns:
   - longitude
   - last_review
   - neighbourhood
+
+continous_var:
+  - price
+  - minimum_night
+  - lag
+  - number_of_reviews
+  - calculated_host_listings_count
